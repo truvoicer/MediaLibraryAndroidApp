@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.player.PlayerFragment">
+
+    <ImageView
+        android:id="@+id/audio_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/audio_stop_content_description"
+        android:src="@drawable/baseline_stop_black_48"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/audio_seek_bar" />
+
+    <ImageView
+        android:id="@+id/audio_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/audio_next_content_description"
+        android:src="@drawable/baseline_skip_next_black_48"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/audio_seek_bar" />
+
+    <ImageView
+        android:id="@+id/audio_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/audio_previous_content_description"
+        android:src="@drawable/baseline_skip_previous_black_48"
+        app:layout_constraintEnd_toStartOf="@+id/audio_play_pause"
+        app:layout_constraintTop_toTopOf="@+id/audio_play_pause" />
+
+    <ImageView
+        android:id="@+id/audio_shuffle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:contentDescription="@string/audio_shuffle_content_description"
+        android:src="@drawable/baseline_shuffle_black_48"
+        app:layout_constraintStart_toEndOf="@+id/audio_next"
+        app:layout_constraintTop_toTopOf="@+id/audio_next" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/queue_list_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/audio_stop">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <SeekBar
+        android:id="@+id/audio_seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/audio_seek_bar_duration_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/audio_seek_bar_progress_text"
+        app:layout_constraintTop_toBottomOf="@+id/audio_album_text" />
+
+    <ImageView
+        android:id="@+id/audio_play_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/audio_play_pause_content_description"
+        android:src="@drawable/baseline_play_arrow_black_48"
+        app:layout_constraintEnd_toStartOf="@+id/audio_stop"
+        app:layout_constraintTop_toTopOf="@+id/audio_stop" />
+
+    <TextView
+        android:id="@+id/audio_player_fragment_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/audio_player_fragment_header_text"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/audio_track_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/library_item_list"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/audio_art"
+        tools:text="Track 1" />
+
+    <TextView
+        android:id="@+id/audio_seek_bar_progress_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/audio_seek_bar"
+        tools:text="0.00" />
+
+    <TextView
+        android:id="@+id/audio_seek_bar_duration_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/audio_seek_bar"
+        tools:text="4.11" />
+
+    <ImageView
+        android:id="@+id/audio_repeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/audio_repeat_content_description"
+        android:src="@drawable/baseline_repeat_black_48"
+        app:layout_constraintStart_toEndOf="@+id/audio_shuffle"
+        app:layout_constraintTop_toTopOf="@+id/audio_shuffle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/audio_art"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:contentDescription="@string/audio_art_content_description"
+        android:src="@drawable/album_art_placeholder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/audio_player_fragment_header" />
+
+    <TextView
+        android:id="@+id/audio_artist_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/audio_track_title"
+        tools:text="G Unit" />
+
+    <TextView
+        android:id="@+id/audio_album_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/audio_artist_text"
+        tools:text="Get Rich Or Die Tryin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

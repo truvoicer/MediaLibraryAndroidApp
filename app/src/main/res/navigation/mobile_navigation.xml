@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.truvoice.medialibrary.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/nav_player"
+        android:name="com.truvoice.medialibrary.ui.player.PlayerFragment"
+        android:label="@string/menu_player"
+        tools:layout="@layout/fragment_player" />
+
+    <fragment
+        android:id="@+id/nav_library"
+        android:name="com.truvoice.medialibrary.ui.library.LibraryFragment"
+        android:label="@string/library_fragment_label"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/nav_add_media"
+        android:name="com.truvoice.medialibrary.ui.add_media.AddMediaFragment"
+        android:label="@string/add_media_fragment_label" />
+</navigation>
